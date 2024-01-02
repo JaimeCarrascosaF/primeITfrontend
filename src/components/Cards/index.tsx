@@ -1,7 +1,8 @@
 import React,  {  useEffect, useState } from 'react';
 import { Content } from 'antd/es/layout/layout';
 import { Button, List, Skeleton } from 'antd';
-import Item from '../types/item';
+import Item from '../../types/item';
+import { getData, onClickDelete, onClickEdit } from './actions';
 
 
 const CardsComponent = () => {
@@ -9,20 +10,9 @@ const CardsComponent = () => {
   const [initLoading, setInitLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/list`)
-  .then(response => response.json())
-  .then(data => {
-    setInitLoading(false);
-    setList(data.items);
-  });
+    getData({setInitLoading, setList})
   }, []);
 
-  const onClickEdit = (el: any) => {
-    console.log("element", el.currentTarget.id);
-  };
-  const onClickDelete = (el: any) => {
-    console.log("element", el.currentTarget.id);
-  };
     return (
           
           <Content style={{ padding: '0 48px' }}>
@@ -34,7 +24,7 @@ const CardsComponent = () => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-          actions={[<Button onClick={onClickEdit} id={String(item.id)}>Edit</Button>, <Button onClick={onClickDelete} id={String(item.id)}>Delete</Button>]}
+          actions={[<Button onClick={e => onClickEdit({e, setList, setInitLoading})} id={String(item.id)}>Edit</Button>, <Button onClick={e => onClickDelete({e, setList, setInitLoading})} id={String(item.id)}>Delete</Button>]}
         >
           <Skeleton avatar title={false} loading={initLoading} active>
             <List.Item.Meta
