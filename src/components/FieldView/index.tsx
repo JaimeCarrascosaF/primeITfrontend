@@ -45,9 +45,7 @@ const ModalComponent = ({
           handleCancel({ setOpen, setTitleStatus, setDetailsStatus })
         }
       >
-        <Typography.Title level={3}>
-        Title
-        </Typography.Title>
+        <Typography.Title level={3}>Title</Typography.Title>
         <Input
           className="titleInput"
           placeholder="Title"
@@ -61,9 +59,7 @@ const ModalComponent = ({
           }
           value={title}
         />
-        <Typography.Title level={3}>
-        Details
-        </Typography.Title>
+        <Typography.Title level={3}>Details</Typography.Title>
         <TextArea
           className="detailsInput"
           rows={2}
