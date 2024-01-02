@@ -11,28 +11,26 @@ const ModalComponent = ({
   setTitle,
   details,
   setDetails,
+  id,
 }: {
   open: boolean;
   title: valueType;
   details: valueType;
+  id?: number;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setTitle: React.Dispatch<React.SetStateAction<valueType>>;
   setDetails: React.Dispatch<React.SetStateAction<valueType>>;
 }) => {
-  const [titleStatus, setTitleStatus] = useState<
-    "" | "warning" | "error" | undefined
-  >("");
-  const [detailsStatus, setDetailsStatus] = useState<
-    "" | "warning" | "error" | undefined
-  >("");
+  const [titleStatus, setTitleStatus] = useState<"" | "warning" | "error" | undefined>("");
+  const [detailsStatus, setDetailsStatus] = useState<"" | "warning" | "error" | undefined>("");
 
   return (
     <>
       <Modal
         title="Todo item modal"
         open={open}
-        onOk={() => handleOk({ setOpen })}
-        onCancel={() => handleCancel({ setOpen })}
+        onOk={() => handleOk({ setOpen, titleStatus, detailsStatus, item: {title, details, id} })}
+        onCancel={() => handleCancel({ setOpen, setTitleStatus, setDetailsStatus })}
       >
         <Input
           placeholder="Title"

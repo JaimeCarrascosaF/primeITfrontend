@@ -9,17 +9,21 @@ const CardsComponent = ({
   setModalOpen,
   setTitle,
   setDetails,
+  setModalId,
+  isModalOpen,
 }: {
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setTitle: React.Dispatch<React.SetStateAction<valueType>>;
   setDetails: React.Dispatch<React.SetStateAction<valueType>>;
+  setModalId: React.Dispatch<React.SetStateAction<number | undefined>>;
+  isModalOpen: boolean;
 }) => {
   const [list, setList] = useState<Item[]>([]);
   const [initLoading, setInitLoading] = useState(true);
 
   useEffect(() => {
-    getData({ setInitLoading, setList });
-  }, []);
+    if (!isModalOpen) getData({ setInitLoading, setList });
+  }, [isModalOpen]);
 
   return (
     <Content style={{ padding: "0 48px" }}>
@@ -39,6 +43,7 @@ const CardsComponent = ({
                     setModalOpen,
                     setTitle,
                     setDetails,
+                    setModalId,
                     item,
                   })
                 }

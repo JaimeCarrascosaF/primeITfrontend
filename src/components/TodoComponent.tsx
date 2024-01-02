@@ -10,6 +10,7 @@ const TodoComponent = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [titleElement, setTitleElement] = useState<valueType>("");
   const [detailsElement, setDetailsElement] = useState<valueType>("");
+  const [modalId, setModalId] = useState<number>();
   return (
     <Layout>
       <HeaderContent />
@@ -17,6 +18,8 @@ const TodoComponent = () => {
         setModalOpen={setModalOpen}
         setTitle={setTitleElement}
         setDetails={setDetailsElement}
+        setModalId={setModalId}
+        isModalOpen={isModalOpen}
       />
       <FooterComponent />
       <ModalComponent
@@ -26,6 +29,7 @@ const TodoComponent = () => {
         details={detailsElement}
         setTitle={setTitleElement}
         setDetails={setDetailsElement}
+        id={modalId}
       />
     </Layout>
   );

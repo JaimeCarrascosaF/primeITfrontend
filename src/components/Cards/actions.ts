@@ -3,6 +3,7 @@ import ClickParam, { ItemList } from "../../types/clickParam";
 const onClickEdit = (param: ClickParam) => {
   param.setTitle?.(param.item.title);
   param.setDetails?.(param.item.details);
+  param.setModalId?.(param.item.id);
   param.setModalOpen?.(true);
 };
 const onClickDelete = (param: ClickParam) => {

@@ -8,6 +8,7 @@ type ClickParam = {
   setModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   setTitle?: React.Dispatch<React.SetStateAction<valueType>>;
   setDetails?: React.Dispatch<React.SetStateAction<valueType>>;
+  setModalId?: React.Dispatch<React.SetStateAction<number | undefined>>;
 };
 export type ItemList = {
   setInitLoading: React.Dispatch<React.SetStateAction<boolean>>;
