@@ -1,21 +1,34 @@
-import React from 'react';
-import {  Layout   } from 'antd';
-import HeaderContent from './HeaderContent';
-import CardsComponent from './Cards';
-import FooterComponent from './Footer';
-
-
-
-
+import React, { useState } from "react";
+import { Layout } from "antd";
+import HeaderContent from "./HeaderContent";
+import CardsComponent from "./Cards";
+import FooterComponent from "./Footer";
+import ModalComponent from "./FieldView";
+import { valueType } from "antd/es/statistic/utils";
 
 const TodoComponent = () => {
-    return (
-        <Layout>
-          <HeaderContent/>
-          <CardsComponent/>
-          <FooterComponent/>
-        </Layout>
-    );
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [titleElement, setTitleElement] = useState<valueType>("");
+  const [detailsElement, setDetailsElement] = useState<valueType>("");
+  return (
+    <Layout>
+      <HeaderContent />
+      <CardsComponent
+        setModalOpen={setModalOpen}
+        setTitle={setTitleElement}
+        setDetails={setDetailsElement}
+      />
+      <FooterComponent />
+      <ModalComponent
+        open={isModalOpen}
+        setOpen={setModalOpen}
+        title={titleElement}
+        details={detailsElement}
+        setTitle={setTitleElement}
+        setDetails={setDetailsElement}
+      />
+    </Layout>
+  );
 };
 
-  export default TodoComponent;
+export default TodoComponent;

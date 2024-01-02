@@ -1,8 +1,16 @@
+import { valueType } from "antd/es/statistic/utils";
 import Item from "./item";
 
 type ClickParam = {
-    e?: React.MouseEvent<HTMLElement, MouseEvent>,
-    setList: React.Dispatch<React.SetStateAction<Item[]>>,
-    setInitLoading: React.Dispatch<React.SetStateAction<boolean>>
-  }
+  setList: React.Dispatch<React.SetStateAction<Item[]>>;
+  item: Item;
+  setInitLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setTitle?: React.Dispatch<React.SetStateAction<valueType>>;
+  setDetails?: React.Dispatch<React.SetStateAction<valueType>>;
+};
+export type ItemList = {
+  setInitLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setList: React.Dispatch<React.SetStateAction<Item[]>>;
+};
 export default ClickParam;
