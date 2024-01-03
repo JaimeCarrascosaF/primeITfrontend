@@ -38,7 +38,9 @@ const handleOk = async ({
     if (item.id) await editItem(item);
     else await createNewItem(item);
     setOpen(false);
-  } catch (error) {}
+  } catch (error: Error | any) {
+    alert(error.message);
+  }
 };
 
 const createNewItem = async (item: Item) => {

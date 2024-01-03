@@ -1,4 +1,5 @@
 .floatButton {
-    width: 10vh;
-    height: 10vh;
+    width: 55px;
+    height: 55px;
+    inset-block-start: 13px;
 }
