@@ -8,15 +8,13 @@
 
 - Installed and running backend for the calls. Use the `.env` file for connection configuration.
 - Node.js installed on version `20.10.0`. Recommended usage of nvm <https://github.com/coreybutler/nvm-windows> in windows or <https://github.com/nvm-sh/nvm> on unix/macOS systems.
-
 - Port `3000` available. Or set another on both frontend and backend `.env` files.
-- Yarn installed <https://classic.yarnpkg.com/lang/en/docs/install/>
 
 ## Install
 
     $ git clone https://github.com/JaimeCarrascosaF/primeITfrontend
     $ cd primeITfrontend
-    $ yarn install
+    $ npm install
 
 ## Running the project
 
