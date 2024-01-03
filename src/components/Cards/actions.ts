@@ -19,6 +19,9 @@ const getData = ({ setInitLoading, setList }: ItemList) => {
     .then((data) => {
       setInitLoading(false);
       setList(data.items);
+    })
+    .catch((err) => {
+      console.error(err);
     });
 };
 
