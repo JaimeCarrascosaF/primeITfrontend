@@ -1,7 +1,8 @@
 import InputType from "../../types/inputItemType";
 import Item from "../../types/item";
 
-const regexVal = "^[a-zA-Z0-9 ]*$";
+const regexVal = "^[a-zA-Z0-9 ]{2,";
+const endRegexVal = "}$";
 
 const handleCancel = ({
   setOpen,
@@ -31,7 +32,7 @@ const handleOk = async ({
   detailsStatus: "" | "warning" | "error" | undefined;
   item: Item;
 }) => {
-  if (titleStatus || detailsStatus) return;
+  if (titleStatus || detailsStatus || String(item.title).length < 2) return;
 
   try {
     if (item.id) await editItem(item);
@@ -69,8 +70,8 @@ const editItem = async (item: Item) => {
     requestOptions
   );
 };
-const changeFieldData = ({ chEl, setter, statusSet }: InputType) => {
-  const tester = new RegExp(regexVal);
+const changeFieldData = ({ chEl, setter, statusSet, maxFields }: InputType) => {
+  const tester = new RegExp(regexVal + maxFields + endRegexVal);
   if (!tester.test(chEl.target.value)) {
     statusSet("error");
   } else {

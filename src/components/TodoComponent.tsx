@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout } from "antd";
-import HeaderContent from "./HeaderContent";
 import CardsComponent from "./Cards";
 import FooterComponent from "./Footer";
 import ModalComponent from "./FieldView";
 import { valueType } from "antd/es/statistic/utils";
+import HeaderContent from "./Header";
 
 const TodoComponent = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [titleElement, setTitleElement] = useState<valueType>("");
   const [detailsElement, setDetailsElement] = useState<valueType>("");
   const [modalId, setModalId] = useState<number>();
+
+  useEffect(() => {
+    if (!isModalOpen) {
+      setTitleElement("");
+      setDetailsElement("");
+      setModalId(undefined);
+    }
+  }, [isModalOpen]);
+
   return (
     <Layout>
-      <HeaderContent />
+      <HeaderContent setModalOpen={setModalOpen} />
       <CardsComponent
         setModalOpen={setModalOpen}
         setTitle={setTitleElement}

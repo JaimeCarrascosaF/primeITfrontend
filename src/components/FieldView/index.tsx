@@ -41,6 +41,7 @@ const ModalComponent = ({
             item: { title, details, id },
           })
         }
+        destroyOnClose
         onCancel={() =>
           handleCancel({ setOpen, setTitleStatus, setDetailsStatus })
         }
@@ -55,6 +56,7 @@ const ModalComponent = ({
               chEl,
               setter: setTitle,
               statusSet: setTitleStatus,
+              maxFields: Number(process.env.REACT_APP_MAX_TITLE_FIELDS),
             })
           }
           value={title}
@@ -69,6 +71,7 @@ const ModalComponent = ({
               chEl,
               setter: setDetails,
               statusSet: setDetailsStatus,
+              maxFields: Number(process.env.REACT_APP_MAX_DESCRIPTION_FIELDS),
             })
           }
           value={details}

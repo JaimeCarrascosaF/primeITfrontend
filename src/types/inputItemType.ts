@@ -6,5 +6,6 @@ type InputType = {
   statusSet: React.Dispatch<
     React.SetStateAction<"" | "warning" | "error" | undefined>
   >;
+  maxFields: number;
 };
 export default InputType;
