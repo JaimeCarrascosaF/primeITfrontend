@@ -2,6 +2,8 @@
   "name": "todofrontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/JaimeCarrascosaF/primeITfrontend",
+  "license": "CC-BY-NC-1.0",
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@testing-library/jest-dom": "^5.17.0",
