@@ -18,7 +18,15 @@
 
 ## Running the project
 
+#### Dev mode
+
     $ npm run start
+
+#### Build and serve
+
+    $ npm run build
+    $ npm install -g serve
+    $ serve -s build
 
 ## Testing the project
 
